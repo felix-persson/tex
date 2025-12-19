@@ -1,0 +1,95 @@
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{physics}
+\usepackage{thmtools}
+
+\usepackage{siunitx}
+\sisetup{
+    list-final-separator={ \GetTranslation{and} },
+	list-pair-separator={ \GetTranslation{and} },
+	range-phrase={ \GetTranslation{to} },
+	per-mode=symbol,
+    range-units=single,
+}
+\AtBeginDocument{\RenewCommandCopy\qty\SI}
+
+\input{../tex/lang}
+
+\let\implies\Rightarrow
+\let\impliedby\Leftarrow
+\let\iff\Leftrightarrow
+\let\epsilon\varepsilon
+
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\dlog}{L}
+
+\newcommand{\C}{\ensuremath{\mathbb{C}}}
+\newcommand{\N}{\ensuremath{\mathbb{N}}}
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
+\newcommand{\Z}{\ensuremath{\mathbb{Z}}}
+
+\ifdefined\chapter
+    \newcommand{\thmparent}{chapter}
+\else
+    \newcommand{\thmparent}{section}
+\fi
+
+\declaretheoremstyle[bodyfont=\itshape,mdframed={nobreak}]{thmbox}
+\declaretheoremstyle[mdframed={nobreak}]{thmboxnonitalic}
+
+\declaretheorem[
+    title=\protect\GetTranslation{theorem},
+    parent=\thmparent,
+    style=thmbox,
+]{theorem}
+
+\declaretheorem[
+    title=\protect\GetTranslation{lemma},
+    parent=\thmparent,
+    style=thmbox,
+]{lemma}
+
+\declaretheorem[
+    title=\protect\GetTranslation{corollary},
+    parent=\thmparent,
+    style=thmbox,
+]{corollary}
+
+\declaretheorem[
+    name=\protect\GetTranslation{remark},
+    numbered=no,
+    style=remark,
+]{remark}
+
+\declaretheorem[
+    name=\protect\GetTranslation{definition},
+    parent=\thmparent,
+    style=thmboxnonitalic,
+]{definition}
+
+\declaretheorem[
+    name=\protect\GetTranslation{example},
+    parent=\thmparent,
+    style=definition,
+]{example}
+
+\declaretheorem[
+    name=\protect\GetTranslation{nonexample},
+    parent=\thmparent,
+    sibling=example,
+    style=definition,
+]{nonexample}
+
+\declaretheorem[
+    name=\protect\GetTranslation{algorithm},
+    parent=\thmparent,
+    style=definition,
+]{algorithm}
+
+\declaretheorem[
+    name=\protect\GetTranslation{method},
+    parent=\thmparent,
+    style=definition,
+]{method}
